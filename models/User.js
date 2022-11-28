@@ -14,7 +14,7 @@ const userSchema = new Schema(
             unique: true,
             required: true,
             match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/, 
-            "Invalid Emaill! Please enter a valid email address",]
+            "Invalid Email! Please enter a valid email address",]
         },
 
         thoughts:[{
@@ -37,7 +37,8 @@ const userSchema = new Schema(
 
 //Create a virtual called friendCount that retrieves 
 //the length of the user's friends array field on query.
-userSchema.virtual("friendCount").get(function () {
+userSchema.virtual("friendCount")
+.get(function () {
     return this.friends.length;
   });
 
